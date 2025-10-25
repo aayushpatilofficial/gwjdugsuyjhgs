@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scientrix — Ultra Glass Edition</title>
+<meta name="description" content="Scientrix — Sustainable Futures. Organized by Little Scholars Academy. Ultra-realistic glass UI." />
+<style>
+:root{--bg-1:#071021;--bg-2:#04101a;--glass-1:rgba(255,255,255,0.04);--glass-2:rgba(255,255,255,0.02);--accent:#00e5c4;--accent-2:#00a3ff;--muted:rgba(230,238,246,0.7);--glass-border: rgba(255,255,255,0.06);--maxw:1200px;--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:radial-gradient(1200px 600px at 10% 10%, rgba(0,160,255,0.06), transparent 10%),radial-gradient(1000px 500px at 90% 90%, rgba(0,230,196,0.04), transparent 15%),linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 100%);color:#e6eef6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+.nav{position:fixed;left:50%;transform:translateX(-50%);top:18px;z-index:60;backdrop-filter:blur(8px);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.018));border:1px solid var(--glass-border);padding:10px 16px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 6px 30px rgba(5,10,20,0.6)}
+.nav .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo-mark{width:44px;height:44;border-radius:10px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 4px 18px rgba(0,160,255,0.12);color:#032}
+.nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600}
+.nav a.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042;padding:8px 14px;box-shadow:0 6px 24px rgba(0,160,255,0.08)}
+.hero{margin-top:88px;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:start}
+.glass{border-radius:var(--radius);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass-border);backdrop-filter: blur(12px) saturate(1.05);box-shadow: 0 14px 50px rgba(3,6,20,0.6);padding:28px}
+.hero-left h1{font-size:2.4rem;letter-spacing:0.4px}
+.eyebrow{color:var(--muted);font-weight:600;margin-bottom:6px}
+.lead{color:var(--muted);margin-top:12px;line-height:1.5}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:linear-gradient(90deg, rgba(0,229,196,0.08), rgba(0,163,255,0.05));border:1px solid rgba(0,160,255,0.06);font-weight:700;color:var(--accent)}
+.countdown{display:flex;gap:12px;margin-top:18px}
+.countdown .unit{min-width:84px;text-align:center;padding:12px 10px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+.unit .num{font-size:1.5rem;font-weight:800;color:#fff}
+.unit .lbl{font-size:.8rem;color:var(--muted)}
+.section{margin-top:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rules-list{color:var(--muted);padding-left:18px}
+.rules-list li{margin:10px 0}
+.schedule{margin-top:12px;display:grid;gap:10px}
+.schedule-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(8px);}
+.schedule-item .time{font-weight:700;color:var(--accent)}
+.schedule-item .desc{color:var(--muted);font-weight:600}
+.contact .row{display:flex;gap:12px;align-items:center}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,#25D366,#128C7E);color:white;text-decoration:none;font-weight:700;border:1px solid rgba(0,0,0,0.12);box-shadow:0 8px 28px rgba(37,211,102,0.08)}
+.group-btn{background:linear-gradient(90deg,#22c55e,#16a34a);}
+.confirm-note{margin-top:14px;padding:16px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-left:4px solid var(--accent);color:var(--muted);font-weight:700}
+.confirm-note strong{color:var(--accent)}
+footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.nav{left:16px;transform:none;top:14px}}
+@media (max-width:560px){.countdown{flex-wrap:wrap}.grid{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(10px);animation:reveal .7s forwards}
+.reveal.delay-1{animation-delay:.08s}.reveal.delay-2{animation-delay:.16s}.reveal.delay-3{animation-delay:.24s}
+@keyframes reveal{to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="nav">
+<div class="brand"><div class="logo-mark">ST</div><div style="min-width:140px">Scientrix — Little Scholars Academy</div></div>
+<nav style="margin-left:12px;display:flex;gap:6px;align-items:center">
+<a href="#about">Home</a>
+<a href="#rules">Rules</a>
+<a href="#schedule">Schedule</a>
+<a href="#contact">Contact</a>
+<a class="primary" href="#register">Register</a>
+</nav>
+</div>
+<main class="wrap">
+<section id="about" class="glass reveal">
+<h2 class="eyebrow">Welcome to Scientrix</h2>
+<h1>Sustainable Futures — Event Rules & Info</h1>
+<p class="lead">Organized by <strong>Little Scholars Academy</strong>. Explore the detailed rules, schedule, and contact information for all participants. Experience our ultra-realistic glass UI and countdowns for every event.</p>
+<div class="badge">Theme: Sustainable Futures</div>
+<div class="countdown" id="main-countdown">
+<div class="unit"><div class="num" id="days">0</div><div class="lbl">Days</div></div>
+<div class="unit"><div class="num" id="hours">0</div><div class="lbl">Hours</div></div>
+<div class="unit"><div class="num" id="minutes">0</div><div class="lbl">Minutes</div></div>
+<div class="unit"><div class="num" id="seconds">0</div><div class="lbl">Seconds</div></div>
+</div>
+</section>
+<section id="rules" class="glass reveal">
+<h2>Rules</h2>
+<ul class="rules-list">
+<li>Maximum <strong>3 participants per team</strong>.</li>
+<li>Follow the event theme: <strong>Sustainable Futures</strong>.</li>
+<li>Respect all other teams and judges.</li>
+<li>Maintain originality in projects and exhibits.</li>
+<li>All decisions by judges are final.</li>
+</ul>
+</section>
+<section id="schedule" class="glass reveal">
+<h2>Event Schedule</h2>
+<p class="muted">All times are on Nov 11, 2025</p>
+<div class="schedule">
+<div class="schedule-item" data-time="2025-11-11T08:00:00"><div class="time">08:00–09:00</div><div class="desc">Registration & Setup</div><div class="countdown-event"></div></div>
+<div class="schedule-item" data-time="2025-11-11T09:00:00"><div class="time">09:00–10:30</div><div class="desc">Opening Ceremony & Keynote</div><div class="countdown-event"></div></div>
+<div class="schedule-item" data-time="2025-11-11T10:30:00"><div class="time">10:30–13:00</div><div class="desc">Exhibition Viewing — Round 1</div><div class="countdown-event"></div></div>
+<div class="schedule-item" data-time="2025-11-11T13:00:00"><div class="time">13:00–14:00</div><div class="desc">Lunch</div><div class="countdown-event"></div></div>
+<div class="schedule-item" data-time="2025-11-11T14:00:00"><div class="time">14:00–16:00</div><div class="desc">Judging & Workshops</div><div class="countdown-event"></div></div>
+<div class="schedule-item" data-time="2025-11-11T16:30:00"><div class="time">16:30–17:30</div><div class="desc">Results & Closing</div><div class="countdown-event"></div></div>
+</div>
+</section>
+<section id="contact" class="glass reveal">
+<h2>Contact</h2>
+<div class="row contact">
+<a href="https://wa.me/+918217575558" class="wa-btn">Aayush: 8217575558</a>
+<a href="https://wa.me/+919480172376" class="wa-btn">Pranavkumar Math: +91 94801 72376</a>
+<a href="https://chat.whatsapp.com/EXAMPLEGROUPLINK" class="wa-btn group-btn">Join WhatsApp Group</a>
+</div>
+<div class="confirm-note">All confirmations should be sent to <strong>Aayush (+91 8217575558)</strong>.</div>
+</section>
+<footer>© 2025 Scientrix — Little Scholars Academy. All rights reserved.</footer>
+</main>
+<script>
+// Main countdown to event start
+const eventStart = new Date('2025-11-11T08:00:00');
+function updateMainCountdown(){
+  const now = new Date();
+  let diff = Math.max(0,eventStart - now);
+  const days = Math.floor(diff/86400000);
+  diff %= 86400000;
+  const hours = Math.floor(diff/3600000);
+  diff %=3600000;
+  const mins = Math.floor(diff/60000);
+  const secs = Math.floor(diff/1000)%60;
+  document.getElementById('days').textContent=days;
+  document.getElementById('hours').textContent=hours;
+  document.getElementById('minutes').textContent=mins;
+  document.getElementById('seconds').textContent=secs;
+}
+setInterval(updateMainCountdown,1000); updateMainCountdown();
+
+// Schedule countdowns
+function updateEventCountdowns(){
+  const now=new Date();
+  document.querySelectorAll('.schedule-item').forEach(item=>{
+    const startTime=new Date(item.dataset.time);
+    const diff=Math.max(0,startTime-now);
+    const hrs=Math.floor(diff/3600000);
+    const mins=Math.floor((diff%3600000)/60000);
+    const secs=Math.floor((diff%60000)/1000);
+    const el=item.querySelector('.countdown-event');
+    if(diff>0){
+      el.textContent=`Starts in ${hrs}h ${mins}m ${secs}s`;
+    } else { el.textContent='Ongoing/Finished'; }
+  });
+}
+setInterval(updateEventCountdowns,1000); updateEventCountdowns();
+</script>
+</body>
+</html>
+

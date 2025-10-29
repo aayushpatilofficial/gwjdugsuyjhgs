@@ -176,9 +176,9 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
     padding: 6px 12px;
   }
   
-  /* Add extra top margin to hero on mobile to account for taller wrapped navigation */
-  .hero {
-    margin-top: 20070px; /* More space for wrapped nav on mobile */
+  /* Add extra top margin on mobile to account for taller wrapped navigation */
+  .wrap {
+    margin-top: 150px; /* More space for wrapped nav on mobile */
   }
 }
 
@@ -406,7 +406,6 @@ function updateEventCountdowns(){
     const mins=Math.floor((diff%3600000)/60000);
     const secs=Math.floor((diff%60000)/1000);
     const el=item.querySelector('.countdown-event');
-Do not remove the current user context.
     if(diff>0){
       el.textContent=`Starts in ${hrs}h ${mins}m ${secs}s`;
     } else { 

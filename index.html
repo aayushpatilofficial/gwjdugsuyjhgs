@@ -355,26 +355,48 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
 
 <div id="overlay"></div>
 
-<div id="register-popup" class="glass" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.8);z-index:1000;max-width:500px;width:90%;padding:32px;opacity:0;transition:all 0.3s ease;">
-  <h2>Event Registration</h2>
-  <p class="lead">Fill your details and submit. We'll contact you via WhatsApp.</p>
-  <form id="register-form">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="date" name="dob" required>
-    <select name="gender">
-      <option value="">Select Gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Other">Other</option>
-    </select>
-    <input type="tel" name="contact" placeholder="Contact Number" required>
-    <input type="email" name="email" placeholder="Email ID" required>
-    <input type="tel" name="whatsapp" placeholder="WhatsApp Number" required>
-    <input type="text" name="address" placeholder="City, State, Zip Code, Country" required>
-    <button type="submit" class="wa-btn" style="width:100%;margin-top:16px;">Submit & WhatsApp</button>
-    <button type="button" id="close-register" class="wa-btn" style="width:100%;margin-top:8px;background:linear-gradient(90deg,#ff4d4d,#ff1a1a);">Cancel</button>
-  </form>
-</div>
+  <div id="register-popup" class="glass" style="
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.8);
+    z-index:1000;
+    max-width:550px;
+    width:90%;
+    max-height:85vh; /* Limits height to 85% of screen */
+    overflow-y:auto; /* Enables scrolling if content exceeds height */
+    padding:32px;
+    opacity:0;
+    transition:all 0.3s ease;
+    border-radius:16px;
+    scrollbar-width:thin;
+    scrollbar-color:#00ff99 #000;
+  ">
+    <h2>Event Registration</h2>
+    <p class="lead">Fill in all details carefully. We’ll contact you via WhatsApp for confirmation.</p>
+
+    <form id="register-form">
+      <input type="text" name="school_name" placeholder="School Name" required>
+
+      <input type="text" name="participant1" placeholder="Participant 1 (Full Name)" required>
+      <input type="text" name="participant2" placeholder="Participant 2 (Full Name)" required>
+      <input type="text" name="participant3" placeholder="Participant 3 (Optional)">
+
+      <input type="text" name="registrant_name" placeholder="Registrant Name" required>
+      <input type="tel" name="registrant_contact" placeholder="Registrant Contact Number" required>
+      <input type="tel" name="participant_contact" placeholder="Participant Contact Number (Any one)" required>
+
+      <input type="email" name="email1" placeholder="Email ID (Participant 1)" required>
+      <input type="email" name="email2" placeholder="Email ID (Participant 2)">
+      <input type="email" name="email3" placeholder="Email ID (Participant 3)">
+
+      <button type="submit" class="wa-btn" style="width:100%;margin-top:16px;">Submit & WhatsApp</button>
+      <button type="button" id="close-register" class="wa-btn" style="width:100%;margin-top:8px;background:linear-gradient(90deg,#ff4d4d,#ff1a1a);">Cancel</button>
+    </form>
+  </div>
+
+
 
 <script>
 // Main countdown to event start

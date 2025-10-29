@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=1200" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Scientrix — Ultra Glass Edition</title>
 <meta name="description" content="Scientrix — Sustainable Futures. Organized by Little Scholars Academy. Ultra-realistic glass UI." />
 <style>
@@ -30,6 +30,8 @@ html,body{
 }
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+
+/* Desktop Navigation (Original) */
 .nav{
   position:fixed;
   left:50%;
@@ -105,8 +107,76 @@ a{color:inherit;text-decoration:none}
 .confirm-note{margin-top:14px;padding:16px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-left:4px solid var(--accent);color:var(--muted);font-weight:700}
 .confirm-note strong{color:var(--accent)}
 footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
-@media (max-width:980px){.hero{grid-template-columns:1fr}.nav{left:16px;transform:none;top:14px}}
-@media (max-width:560px){.countdown{flex-wrap:wrap}.grid{grid-template-columns:1fr}}
+
+/* --- UPDATED MEDIA QUERY FOR NAVIGATION --- */
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .nav {
+    left: 12px;           /* Pin to 12px from left */
+    right: 12px;          /* Pin to 12px from right */
+    top: 14px;
+    transform: none;      /* Remove centering */
+    width: auto;          /* Let browser calculate width */
+    border-radius: 14px;
+    justify-content: space-between; /* Spreads out logo and links */
+  }
+}
+
+/* Original media query for smaller screens */
+@media (max-width:560px){
+  .countdown{flex-wrap:wrap}
+  .grid{grid-template-columns:1fr}
+
+  /* Additional fixes for small screens */
+  .wrap {
+    padding: 16px; /* Less padding on phone */
+  }
+  .hero-left h1 {
+    font-size: 2.1rem; /* Smaller heading */
+  }
+  .countdown .unit {
+    min-width: 0; /* Allow countdown units to flex */
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  .schedule-item {
+    flex-direction: column; /* Stack schedule items */
+    align-items: flex-start;
+    gap: 6px;
+  }
+  
+  /* Fix navigation on mobile to prevent Register button from being cut off */
+  .nav {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .nav .brand {
+    flex: 1 1 auto;
+    min-width: 0; /* Allow text to shrink */
+  }
+  .nav .brand > div:last-child {
+    font-size: 0.85rem; /* Smaller brand text on mobile */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav nav {
+    margin-left: 0 !important;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .nav a {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  .nav a.primary {
+    padding: 6px 12px;
+  }
+}
+
 .reveal{opacity:0;transform:translateY(10px);animation:reveal .7s forwards}
 .reveal.delay-1{animation-delay:.08s}.reveal.delay-2{animation-delay:.16s}.reveal.delay-3{animation-delay:.24s}
 @keyframes reveal{to{opacity:1;transform:none}}
@@ -190,7 +260,7 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
         <div class="desc">Tea / Snack Break</div>
         <div class="countdown-event"></div>
       </div>
-      <div class="schedule-item" data-time="2025-11-11T12:30:0m0">
+      <div class="schedule-item" data-time="2025-11-11T12:30:00">
         <div class="time">12:30–02:00</div>
         <div class="desc">Project Exhibition — Round 2 / Demonstrations</div>
         <div class="countdown-event"></div>
@@ -249,6 +319,18 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:0.9rem}
     color: #fff;
     border: 2px solid rgba(0, 255, 136, 1);
     transform: scale(1.05);
+  }
+
+  /* Stack download buttons on small screens */
+  @media (max-width: 560px) {
+    .download-buttons {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .btn-download {
+      width: 100%;
+      text-align: center;
+    }
   }
   </style>
 
@@ -319,6 +401,7 @@ function updateEventCountdowns(){
     const mins=Math.floor((diff%3600000)/60000);
     const secs=Math.floor((diff%60000)/1000);
     const el=item.querySelector('.countdown-event');
+Do not remove the current user context.
     if(diff>0){
       el.textContent=`Starts in ${hrs}h ${mins}m ${secs}s`;
     } else { 

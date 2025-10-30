@@ -1,221 +1,436 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naadageethe Competition 2025 Registration</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Naadageethe — Ultra Realistic Registration (Gold & Maroon)</title>
+<meta name="description" content="Naadageethe Competition 2025 — Group registration (6-8). Ultra-realistic hero, glass UI, WhatsApp registration."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-  * {
-    margin: 0; padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  :root{
+    --bg-1:#fbf7f3;           /* soft cream */
+    --bg-2:#f6eee6;           /* warm layer */
+    --card:#ffffffcc;
+    --glass: rgba(255,255,255,0.7);
+    --maroon:#8b1e3f;         /* Karnataka maroon */
+    --gold:#ffd166;           /* Karnataka gold */
+    --muted:#7a6f6a;
+    --shadow: rgba(20,18,16,0.06);
+    --maxw:1200px;
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+    background:
+      radial-gradient(800px 400px at 10% 12%, rgba(255,209,102,0.12), transparent 12%),
+      radial-gradient(700px 300px at 90% 85%, rgba(139,30,63,0.06), transparent 15%),
+      linear-gradient(180deg,var(--bg-1),var(--bg-2));
+    color:#332a28;
+    -webkit-font-smoothing:antialiased;
+    padding:28px 18px 60px;
   }
 
-  body {
-    background: radial-gradient(circle at top, #0a0a0a, #111827);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding: 2rem 0;
-    overflow-x: hidden;
+  /* layout */
+  .wrap{max-width:var(--maxw); margin:20px auto; display:grid; grid-template-columns: 1fr 480px; gap:28px; align-items:start;}
+  @media (max-width:980px){ .wrap{grid-template-columns:1fr;padding:0 12px} .aside-card{order:2} }
+
+  /* logo slot top-left */
+  .topbar{display:flex;align-items:center;gap:12px;margin-bottom:6px;position:relative}
+  .logo-slot{width:72px;height:72px;border-radius:12px;background:#fff;border:1px dashed rgba(0,0,0,0.06);display:grid;place-items:center;box-shadow:0 8px 24px var(--shadow);font-weight:700;color:var(--maroon)}
+  .site-title{flex:1;text-align:center}
+  .site-title h1{margin:0;font-size:1.6rem;letter-spacing:0.6px}
+  .site-sub{color:var(--muted);font-weight:600;font-size:0.95rem}
+
+  /* HERO */
+  .hero{
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,250,244,0.82));
+    border-radius:var(--radius);
+    border:1px solid rgba(0,0,0,0.04);
+    padding:26px;
+    box-shadow: 0 18px 55px rgba(30,22,20,0.06);
+    position:relative;
+    overflow:hidden;
   }
 
-  header {
-    background: linear-gradient(90deg, #b91c1c, #facc15, #b91c1c);
-    background-size: 300% 300%;
-    animation: flow 6s ease infinite;
-    text-align: center;
-    padding: 2rem 1rem;
-    border-radius: 20px;
-    color: #fff;
-    box-shadow: 0 0 40px rgba(250,204,21,0.3);
-  }
-  @keyframes flow {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-  }
+  /* subtle Kannada motif in top-right */
+  .motif{position:absolute;right:-30px;top:-30px;opacity:0.08;transform:rotate(12deg);width:320px;height:320px;background-image:radial-gradient(circle at 30% 30%, rgba(139,30,63,0.08), transparent 10%);border-radius:50%}
 
-  header h1 {
-    font-size: 2.4rem;
-    text-shadow: 0 0 15px rgba(0,0,0,0.5);
-  }
+  .hero-head{display:flex;gap:18px;align-items:center}
+  .mark{width:88px;height:88px;border-radius:14px;background:linear-gradient(135deg,var(--maroon),var(--gold));display:grid;place-items:center;color:#2b1a18;font-weight:900;font-size:22px;box-shadow:0 8px 30px rgba(139,30,63,0.12)}
+  .hero-text h2{margin:0;font-size:1.8rem;color:var(--maroon)}
+  .hero-text p{margin:6px 0 0;color:var(--muted);font-weight:600}
 
-  .container {
-    width: 90%;
-    max-width: 850px;
-    background: rgba(255,255,255,0.06);
-    margin-top: 2rem;
-    border-radius: 20px;
-    padding: 2.5rem;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px rgba(255,255,255,0.08);
+  /* animated hero title */
+  .hero-title{
+    margin-top:16px;
+    font-size:2.4rem;
+    font-weight:800;
+    color:transparent;
+    background:linear-gradient(90deg,var(--maroon),#b33b4a,var(--gold));
+    -webkit-background-clip:text;
+    background-clip:text;
+    text-shadow:0 6px 30px rgba(255,209,102,0.06);
+    animation:floatTitle 4.5s ease-in-out infinite;
   }
+  @keyframes floatTitle{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 
-  h2 {
-    color: #facc15;
-    margin-bottom: 1.2rem;
-    font-size: 1.6rem;
-    border-left: 5px solid #b91c1c;
-    padding-left: 10px;
-  }
+  /* hero sub content */
+  .hero-row{display:flex;gap:18px;margin-top:16px;align-items:flex-start}
+  .hero-left{flex:1}
+  .badge{display:inline-flex;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg, rgba(255,209,102,0.18), rgba(139,30,63,0.06));color:var(--maroon);font-weight:800;border:1px solid rgba(255,209,102,0.14)}
 
-  form {
-    display: grid;
-    gap: 1rem;
-  }
+  /* countdown */
+  .countdown{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  .unit{min-width:84px;text-align:center;padding:12px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,0.03);box-shadow:0 6px 18px rgba(30,22,20,0.03)}
+  .unit .num{font-size:1.3rem;font-weight:800;color:var(--maroon)}
+  .unit .lbl{font-size:0.78rem;color:var(--muted)}
 
-  label {
-    font-weight: 500;
-    margin-bottom: 0.2rem;
-    display: block;
+  /* hero contact highlight + rules block (new) */
+  .contact-highlight{
+    margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,209,102,0.16), rgba(139,30,63,0.04));
+    border:1px solid rgba(255,209,102,0.12);
+    box-shadow: 0 8px 30px rgba(255,209,102,0.06);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
   }
+  .contact-highlight .txt{font-weight:800;color:#2b1a18}
+  .contact-highlight .num{background:#fff;padding:8px 12px;border-radius:10px;color:var(--maroon);font-weight:800;box-shadow:0 6px 18px rgba(139,30,63,0.06)}
 
-  input {
-    background: rgba(255,255,255,0.1);
-    border: none;
-    border-radius: 12px;
-    padding: 0.9rem;
-    width: 100%;
-    color: #fff;
-    font-size: 1rem;
-    transition: 0.3s;
-  }
+  .rules-block{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,248,240,0.9));border:1px solid rgba(0,0,0,0.03)}
+  .rules-block h4{margin:0 0 8px 0;color:var(--maroon);font-size:1rem}
+  .rules-block ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
 
-  input:focus {
-    background: rgba(255,255,255,0.2);
-    outline: 2px solid #facc15;
+  /* RIGHT: registration card (kept same but light styled) */
+  .aside-card{
+    background: linear-gradient(180deg, var(--card), rgba(255,255,255,0.92));
+    padding:18px;border-radius:16px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 26px 60px rgba(30,22,20,0.05)
   }
+  .aside-card h3{margin:0 0 10px 0;color:var(--maroon)}
 
-  .add-btn {
-    background: none;
-    color: #facc15;
-    border: 2px dashed #facc15;
-    padding: 0.8rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+  .form{display:flex;flex-direction:column;gap:12px}
+  .field{position:relative}
+  .input{width:100%;padding:12px;border-radius:10px;border:1px solid #e7dfd5;background:#fff;font-size:0.96rem;color:var(--text);outline:none;transition:box-shadow .12s}
+  .input:focus{box-shadow:0 8px 20px rgba(139,30,63,0.06);border-color:rgba(139,30,63,0.18)}
+  .label{position:absolute;left:12px;top:8px;font-size:0.78rem;color:var(--muted);pointer-events:none}
 
-  .add-btn:hover {
-    background: rgba(250,204,21,0.15);
-  }
+  .participants-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .participant-card{padding:10px;border-radius:10px;background:linear-gradient(180deg,#fff,#fff);border:1px solid #efe6dd;box-shadow:0 8px 18px rgba(0,0,0,0.03)}
+  .participant-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-  button[type="submit"] {
-    background: linear-gradient(90deg, #b91c1c, #facc15);
-    color: #111;
-    border: none;
-    padding: 1rem;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
+  .controls{display:flex;gap:8px;justify-content:flex-end}
+  .ghost{background:transparent;border:1px dashed rgba(0,0,0,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+  .btn{background:linear-gradient(90deg,var(--maroon),var(--gold));border:none;color:#2b1a18;padding:10px 12px;border-radius:10px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(255,209,102,0.08)}
+  .btn:active{transform:scale(.99)}
 
-  button[type="submit"]:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(250,204,21,0.6);
-  }
+  .note{font-size:0.86rem;color:var(--muted);margin-top:6px}
 
-  footer {
-    margin-top: 3rem;
-    color: #9ca3af;
-    text-align: center;
-    font-size: 0.9rem;
-  }
+  .actions{display:flex;gap:10px;align-items:center;margin-top:8px}
+
+  footer{max-width:var(--maxw);margin:28px auto 0;color:var(--muted);text-align:center;font-size:0.9rem}
 </style>
 </head>
 <body>
+<div class="wrap" role="main">
+  <!-- HERO / LEFT -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="motif" aria-hidden="true"></div>
 
-<header>
-  <h1>Naadageethe Competition 2025</h1>
-  <p>Dynamic WhatsApp Registration Portal</p>
-</header>
-
-<div class="container">
-  <h2>Team Registration Form</h2>
-  <form id="registrationForm">
-    <label>🏫 School Name</label>
-    <input type="text" id="schoolName" required placeholder="Enter your school name">
-
-    <div id="participants">
-      <div class="participant">
-        <label>👤 Participant 1 (required)</label>
-        <input type="text" class="pname" placeholder="Full Name" required>
-        <input type="email" class="pemail" placeholder="Email ID (Participant 1)" required>
-      </div>
-      <div class="participant">
-        <label>👤 Participant 2 (required)</label>
-        <input type="text" class="pname" placeholder="Full Name" required>
-        <input type="email" class="pemail" placeholder="Email ID (Participant 2)" required>
+    <div class="topbar">
+      <div class="logo-slot" title="Add school logo here">LOGO</div>
+      <div class="site-title">
+        <h1 id="hero-title">Naadageethe — Competition 2025</h1>
+        <div class="site-sub">Group Singing • Cultural Harmony • 6–8 members</div>
       </div>
     </div>
 
-    <button type="button" class="add-btn" id="addParticipant">➕ Add Another Participant</button>
+    <div class="hero-head" style="margin-top:10px">
+      <div class="mark">NG</div>
+      <div class="hero-text">
+        <h2>Naadageethe — Cultural Harmony</h2>
+        <p>Celebrate Karnataka's musical heritage with graceful arrangements and tight harmonies. Register your school group below — we’ll confirm via WhatsApp.</p>
+      </div>
+    </div>
 
-    <label>📝 Registrant Name</label>
-    <input type="text" id="registrantName" required placeholder="Name of person filling this form">
+    <div class="hero-title">Naadageethe • Voices Unite</div>
 
-    <label>📞 Registrant Contact Number</label>
-    <input type="tel" id="registrantContact" required placeholder="10-digit number">
+    <div class="hero-row">
+      <div class="hero-left">
+        <div class="badge">Theme: Cultural Harmony</div>
 
-    <label>📱 Participant Contact Number (any one)</label>
-    <input type="tel" id="participantContact" required placeholder="10-digit number">
+        <div class="countdown" aria-hidden="false">
+          <div class="unit"><div class="num" id="cd-days">0</div><div class="lbl">Days</div></div>
+          <div class="unit"><div class="num" id="cd-hours">0</div><div class="lbl">Hours</div></div>
+          <div class="unit"><div class="num" id="cd-mins">0</div><div class="lbl">Minutes</div></div>
+          <div class="unit"><div class="num" id="cd-secs">0</div><div class="lbl">Seconds</div></div>
+        </div>
 
-    <button type="submit">Register via WhatsApp 📲</button>
-  </form>
+        <!-- Highlighted contact (NEW) -->
+        <div class="contact-highlight" role="note">
+          <div class="txt">📞 Contact for registrations:</div>
+          <div class="num">+91 94801 72376 (Pranavkumar)</div>
+        </div>
+
+        <!-- decoy rules block (NEW) -->
+        <div class="rules-block" aria-labelledby="rules-heading">
+          <h4 id="rules-heading">📜 Rules & Regulations (Preview)</h4>
+          <ul>
+            <li>All participants must belong to the same school. Groups: 6–8 members (max 8).</li>
+            <li>Performance: 3–6 minutes. Overtime may attract penalties.</li>
+            <li>Language: Kannada/Cultural music preferred. Fusion allowed if culturally relevant.</li>
+            <li>Instruments: Live or pre-recorded accompaniment allowed. Declare instruments during registration.</li>
+            <li>Costumes & props allowed; complex stage props must be pre-approved.</li>
+            <li>Judging criteria: Musicality, harmony, presentation, cultural authenticity, and time adherence.</li>
+            <li>Organizers reserve the right to modify rules; judges’ decision is final.</li>
+            <li><em>Note:</em> These are placeholder rules and will be updated officially soon.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT / Registration Card -->
+  <aside class="aside-card">
+    <h3>Register Your Group</h3>
+    <form id="regForm" class="form" autocomplete="off" novalidate>
+      <div class="field">
+        <input id="school" class="input" placeholder=" " required>
+        <label class="label">School Name</label>
+      </div>
+
+      <!-- PARTICIPANTS -->
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:800;color:var(--muted)">Participants (add up to 8)</div>
+        <div class="controls">
+          <button type="button" id="addBtn" class="ghost">+ Add</button>
+          <button type="button" id="clearBtn" class="ghost">Reset extras</button>
+        </div>
+      </div>
+
+      <div id="participants" class="participants-list" aria-live="polite"></div>
+      <div class="note">Provide at least 6 participants before submitting. You can add up to 8.</div>
+
+      <!-- Contacts -->
+      <div class="participant-row" style="margin-top:6px">
+        <div class="field">
+          <input id="registrant" class="input" placeholder=" " required>
+          <label class="label">Registrant Name (Teacher/Coordinator)</label>
+        </div>
+        <div class="field">
+          <input id="registrantContact" class="input" placeholder=" " pattern="[0-9]*" required>
+          <label class="label">Registrant Contact (WhatsApp)</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <input id="participantContact" class="input" placeholder=" " pattern="[0-9]*" required>
+        <label class="label">Participant Contact (Any one)</label>
+      </div>
+
+      <div class="field">
+        <textarea id="notes" class="input" rows="2" placeholder=" " style="resize:vertical"></textarea>
+        <label class="label">Notes (stage needs, instruments, pre-recorded track link — optional)</label>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn" style="flex:1">Submit & Open WhatsApp</button>
+        <button type="button" id="previewBtn" class="ghost" title="Preview message">Preview</button>
+      </div>
+    </form>
+  </aside>
 </div>
 
-<footer>
-  © 2025 Naadageethe Competition | Powered by Scientrix
-</footer>
+<footer>© 2025 Naadageethe — Little Scholars' Academy. All rights reserved.</footer>
 
 <script>
-  // Dynamic Participant Adder
-  const addBtn = document.getElementById('addParticipant');
-  const participantsDiv = document.getElementById('participants');
-  let count = 2;
+/* -------------------------
+   Particle decoration (very subtle, light)
+   ------------------------- */
+(function(){
+  const c = document.createElement('canvas');
+  c.id = 'bg-canvas';
+  document.body.appendChild(c);
+  const ctx = c.getContext('2d');
+  let w = c.width = innerWidth;
+  let h = c.height = innerHeight;
+  const particles = [];
+  const count = Math.round((w*h)/140000);
 
-  addBtn.addEventListener('click', () => {
-    count++;
-    const div = document.createElement('div');
-    div.classList.add('participant');
-    div.innerHTML = `
-      <label>👤 Participant ${count}</label>
-      <input type="text" class="pname" placeholder="Full Name">
-      <input type="email" class="pemail" placeholder="Email ID (Participant ${count})">
-    `;
-    participantsDiv.appendChild(div);
-  });
+  function rand(a,b){return Math.random()*(b-a)+a}
+  function Particle(){
+    this.x = rand(0,w);
+    this.y = rand(0,h);
+    this.r = rand(0.6,2.2);
+    this.vx = rand(-0.12,0.12);
+    this.vy = rand(-0.04,0.04);
+    this.phase = rand(0,Math.PI*2);
+  }
+  for(let i=0;i<count;i++) particles.push(new Particle());
+  addEventListener('resize',()=>{w=c.width=innerWidth;h=c.height=innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of particles){
+      p.x += p.vx; p.y += p.vy; p.phase += 0.006;
+      if(p.x < -10) p.x = w+10; if(p.x > w+10) p.x = -10;
+      if(p.y < -10) p.y = h+10; if(p.y > h+10) p.y = -10;
+      const a = 0.08 + 0.06*Math.sin(p.phase);
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,209,102,${a})`;
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 
-  // WhatsApp Submission
-  document.getElementById('registrationForm').addEventListener('submit', (e) => {
-    e.preventDefault();
+/* -------------------------
+   Participants logic (keeps original behavior, updated for light theme)
+   ------------------------- */
+(function(){
+  const participantsEl = document.getElementById('participants');
+  const addBtn = document.getElementById('addBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const form = document.getElementById('regForm');
+  const previewBtn = document.getElementById('previewBtn');
 
-    const school = document.getElementById('schoolName').value;
-    const registrant = document.getElementById('registrantName').value;
-    const regContact = document.getElementById('registrantContact').value;
-    const participantContact = document.getElementById('participantContact').value;
+  let participants = [
+    {name:'', email:'', required:true},
+    {name:'', email:'', required:true},
+    {name:'', email:'', required:false},
+  ];
+  const MAX = 8;
 
-    const names = Array.from(document.querySelectorAll('.pname')).map(el => el.value.trim()).filter(v => v);
-    const emails = Array.from(document.querySelectorAll('.pemail')).map(el => el.value.trim()).filter(v => v);
+  function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-    let msg = `*Naadageethe Competition 2025 Registration*%0A%0A🏫 School: ${school}%0A`;
-
-    names.forEach((n, i) => {
-      msg += `👤 Participant ${i+1}: ${n}%0A📧 Email ${i+1}: ${emails[i] || "—"}%0A%0A`;
+  function renderParticipants(){
+    participantsEl.innerHTML = '';
+    participants.forEach((p,i)=>{
+      const idx = i+1;
+      const card = document.createElement('div');
+      card.className = 'participant-card';
+      card.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div style="font-weight:700">Participant ${idx} ${p.required? '(required)':''}</div>
+          <div>${(!p.required && participants.length>1) ? `<button data-i="${i}" class="icon-btn remove">Remove</button>` : ''}</div>
+        </div>
+        <div class="participant-row">
+          <div class="field"><input type="text" class="input pname" placeholder=" " value="${escapeHtml(p.name)}" ${p.required? 'required':''}><label class="label">Full Name</label></div>
+          <div class="field"><input type="email" class="input pemail" placeholder=" " value="${escapeHtml(p.email)}" ${p.required? 'required':''}><label class="label">Email ID ${idx}</label></div>
+        </div>
+      `;
+      participantsEl.appendChild(card);
     });
+    // attach remove handlers
+    participantsEl.querySelectorAll('.remove').forEach(btn=> btn.addEventListener('click', ()=>{
+      const i = +btn.getAttribute('data-i');
+      participants.splice(i,1);
+      participants = participants.map((pp,j)=> ({...pp, required: j<2})); // first two required
+      ensureMin();
+      renderParticipants();
+    }));
+  }
 
-    msg += `📝 Registrant: ${registrant}%0A📞 Registrant Contact: ${regContact}%0A📱 Participant Contact: ${participantContact}%0A%0AThank you for registering!`;
+  function ensureMin(){ while(participants.length < 3) participants.push({name:'',email:'',required:false}); }
 
-    window.open(`https://wa.me/919480172376?text=${msg}`, "_blank");
+  addBtn.addEventListener('click', ()=>{
+    if(participants.length >= MAX){ alert('Max 8 participants allowed.'); return; }
+    participants.push({name:'',email:'',required:false});
+    renderParticipants();
+    setTimeout(()=>{ const last = participantsEl.querySelectorAll('.pname'); if(last.length) last[last.length-1].focus(); },60);
   });
-</script>
 
+  clearBtn.addEventListener('click', ()=>{
+    participants = participants.slice(0,3).map((pp,i)=> ({...pp, required: i<2}));
+    renderParticipants();
+  });
+
+  ensureMin();
+  renderParticipants();
+
+  function collectParticipants(){
+    const names = Array.from(participantsEl.querySelectorAll('.pname')).map(i=>i.value.trim());
+    const emails = Array.from(participantsEl.querySelectorAll('.pemail')).map(i=>i.value.trim());
+    return names.map((n,idx)=> ({name:n, email: emails[idx]||''}));
+  }
+
+  function buildMessage(data){
+    const { school, registrant, registrantContact, participantContact, notes } = data;
+    const parts = collectParticipants();
+    let msg = `*Naadageethe Competition 2025 Registration*%0A%0A`;
+    msg += `School: ${school||'—'}%0A`;
+    parts.forEach((p,i)=> { msg += `Participant ${i+1}: ${p.name||'—'}%0AEmail ${i+1}: ${p.email||'—'}%0A%0A`; });
+    msg += `Registrant: ${registrant||'—'}%0ARegistrant Contact: ${registrantContact||'—'}%0AParticipant Contact: ${participantContact||'—'}%0A`;
+    if(notes) msg += `%0ANotes: ${notes}%0A`;
+    return msg;
+  }
+
+  previewBtn.addEventListener('click', ()=>{
+    const data = {
+      school: document.getElementById('school').value.trim(),
+      registrant: document.getElementById('registrant').value.trim(),
+      registrantContact: document.getElementById('registrantContact').value.trim(),
+      participantContact: document.getElementById('participantContact').value.trim(),
+      notes: document.getElementById('notes').value.trim()
+    };
+    alert(decodeURIComponent(buildMessage(data)));
+  });
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const collected = collectParticipants();
+    const valid = collected.filter(p=>p.name && p.name.length>0);
+    if(valid.length < 6){ alert('Please provide at least 6 participants (names).'); return; }
+    if(valid.length > 8){ alert('Maximum 8 participants allowed.'); return; }
+
+    const school = document.getElementById('school').value.trim();
+    const registrant = document.getElementById('registrant').value.trim();
+    const registrantContact = document.getElementById('registrantContact').value.trim();
+    const participantContact = document.getElementById('participantContact').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+
+    const phonePattern = /^[0-9]{10,13}$/;
+    if(!phonePattern.test(registrantContact)){
+      if(!confirm('Registrant contact looks unusual. Continue?')) return;
+    }
+    if(!phonePattern.test(participantContact)){
+      if(!confirm('Participant contact looks unusual. Continue?')) return;
+    }
+
+    const msg = buildMessage({school, registrant, registrantContact, participantContact, notes});
+    window.open(`https://wa.me/919480172376?text=${msg}`, '_blank');
+  });
+
+})();
+
+/* -------------------------
+   Countdown (Sci file) eventStart: 2025-11-11T08:00:00
+   ------------------------- */
+(function(){
+  const start = new Date('2025-11-11T08:00:00').getTime();
+  const dEl = document.getElementById('cd-days');
+  const hEl = document.getElementById('cd-hours');
+  const mEl = document.getElementById('cd-mins');
+  const sEl = document.getElementById('cd-secs');
+
+  function tick(){
+    const now = Date.now();
+    let diff = Math.max(0, start - now);
+    const days = Math.floor(diff / 86400000);
+    diff %= 86400000;
+    const hours = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const mins = Math.floor(diff / 60000);
+    const secs = Math.floor(diff / 1000) % 60;
+    dEl.textContent = days;
+    hEl.textContent = String(hours).padStart(2,'0');
+    mEl.textContent = String(mins).padStart(2,'0');
+    sEl.textContent = String(secs).padStart(2,'0');
+  }
+  setInterval(tick,1000);
+  tick();
+})();
+</script>
 </body>
 </html>
